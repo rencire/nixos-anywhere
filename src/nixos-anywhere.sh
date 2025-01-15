@@ -538,6 +538,7 @@ SSH
   while runSshTimeout -- exit 0; do sleep 1; done
 
   # After kexec we explicitly set the user to root@
+  #sshConnection="root@${sshHost}"
   sshConnection="${sshUser}@${sshHost}"
 
   # waiting for machine to become available again
@@ -715,7 +716,9 @@ main() {
   if [[ ${isInstaller} == "y" ]] && [[ ${sshUser} != "root" ]]; then
     # Allow copy to fail if authorized_keys does not exist, like if using /etc/ssh/authorized_keys.d/
     runSsh "${maybeSudo} mkdir -p /root/.ssh; ${maybeSudo} cp ~/.ssh/authorized_keys /root/.ssh || true"
-    sshConnection="root@${sshHost}"
+    #sshConnection="root@${sshHost}"
+    sshConnection="${sshUser}@${sshHost}"
+
   fi
 
   if [[ ${phases[disko]} == 1 ]]; then
