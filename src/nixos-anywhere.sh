@@ -717,6 +717,7 @@ main() {
     # Allow copy to fail if authorized_keys does not exist, like if using /etc/ssh/authorized_keys.d/
     runSsh "${maybeSudo} mkdir -p /root/.ssh; ${maybeSudo} cp ~/.ssh/authorized_keys /root/.ssh || true"
     #sshConnection="root@${sshHost}"
+    echo "hiiiiii"
     sshConnection="${sshUser}@${sshHost}"
 
   fi
