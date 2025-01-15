@@ -538,7 +538,7 @@ SSH
   while runSshTimeout -- exit 0; do sleep 1; done
 
   # After kexec we explicitly set the user to root@
-  sshConnection="root@${sshHost}"
+  sshConnection="${sshUser}@${sshHost}"
 
   # waiting for machine to become available again
   until runSsh -o ConnectTimeout=10 -- exit 0; do sleep 5; done
