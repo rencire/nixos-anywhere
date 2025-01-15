@@ -573,7 +573,8 @@ runDisko() {
 nixosInstall() {
   local nixosSystem=$1
   if [[ -n ${nixosSystem} ]]; then
-    step Uploading the system closure
+    step Uploading the system closure???
+    echo $sshConnection
     nixCopy --to "ssh://$sshConnection?remote-store=local?root=/mnt" "$nixosSystem"
   elif [[ ${buildOnRemote} == "y" ]]; then
     step Building the system closure
